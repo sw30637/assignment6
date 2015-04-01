@@ -62,7 +62,6 @@ print array_closest
 #Module that computes the Mandelbrot fractal using the Mandelbrot iteration
 
 
-
 import matplotlib.pyplot as plt 
 plt.imshow(mask.T, extent= [-2, 1, -1.5, 1.5])
 plt.gray()
