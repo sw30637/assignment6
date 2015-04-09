@@ -60,9 +60,31 @@ array_closest=np.array(number_closest)
 print array_closest
 
 #Module that computes the Mandelbrot fractal using the Mandelbrot iteration
+m = 5 + 1j*3
+m
+m.imag
+m.real
+m.conjugate
+m.conjugate()
+abs(m)
 
-
+import numpy 
 import matplotlib.pyplot as plt 
-plt.imshow(mask.T, extent= [-2, 1, -1.5, 1.5])
-plt.gray()
-plt.savefig('mandelbrot.png')
+xRange = numpy.arange(-2.0, 1.01, 0.01)
+yRange = numpy.arange(-1.5, 1.51, 0.01)
+mask = numpy.ones((xRange.size, yRange.size), dtype = bool)
+
+for x in range(xRange.size):   
+    for y in range(yRange.size):      
+        c = xRange[x] + 1j * yRange[y] 
+        z = c
+        for v in range(100):
+            z = z**2 + c 
+            if abs(z) >= 100:
+                mask[x,y] = False 
+                break
+
+plt.imshow(mask.T, extent=[-2, 1, -1.5, 1.5]) 
+plt.gray() 
+plt.savefig('mandelbrot.png') 
+
